@@ -1,17 +1,25 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s=s.lower()
-        new_s=''
-        for letter in s:
-            if letter in 'abcdefghijklmnopqrstuvwxyz0123456789':
-                new_s+=letter
-        n=len(new_s)-1
-        print(new_s)
-        for i in range(len(new_s)):
-            if new_s[i]!=new_s[n] and i<=n:
-                #print(new_s[i],new_s[n])
-                return False
-            else:
-                n=n-1
-        return True
+        # Convert to lowercase
+        s = s.lower()
+
+        # Initialize two pointers
+        left, right = 0, len(s) - 1
+
+        while left < right:
+            # Move left pointer to the next alphanumeric character
+            while left < right and not s[left].isalnum():
+                left += 1
+            # Move right pointer to the previous alphanumeric character
+            while left < right and not s[right].isalnum():
+                right -= 1
             
+            # Check if characters at left and right pointers are equal
+            if s[left] != s[right]:
+                return False
+            
+            # Move pointers closer
+            left += 1
+            right -= 1
+
+        return True
