@@ -1,41 +1,28 @@
-<h2><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii">Best Time to Buy and Sell Stock II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given an integer array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>i<sup>th</sup></code> day.</p>
+# Best Time to Buy and Sell Stock II - README
 
-<p>On each day, you may decide to buy and/or sell the stock. You can only hold <strong>at most one</strong> share of the stock at any time. However, you can buy it then immediately sell it on the <strong>same day</strong>.</p>
+## Problem Description
 
-<p>Find and return <em>the <strong>maximum</strong> profit you can achieve</em>.</p>
+You are given an integer array `prices` where `prices[i]` is the price of a given stock on the `i-th` day.
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+On each day, you may decide to buy and/or sell the stock. You can only hold **at most one** share of the stock at any time. However, you can buy it and immediately sell it on the **same day**.
 
-<pre>
-<strong>Input:</strong> prices = [7,1,5,3,6,4]
-<strong>Output:</strong> 7
-<strong>Explanation:</strong> Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
-Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
-Total profit is 4 + 3 = 7.
-</pre>
+Find and return the **maximum profit** you can achieve.
 
-<p><strong class="example">Example 2:</strong></p>
+### Example 1:
+```text
+Input: prices = [7,1,5,3,6,4]
+Output: 7
+Explanation: 
+    Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5 - 1 = 4.
+    Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6 - 3 = 3.
+    Total profit is 4 + 3 = 7.
 
-<pre>
-<strong>Input:</strong> prices = [1,2,3,4,5]
-<strong>Output:</strong> 4
-<strong>Explanation:</strong> Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
-Total profit is 4.
-</pre>
+## Approach
+- To solve this problem, we can iterate over the prices array and track when we can make a profit.
 
-<p><strong class="example">Example 3:</strong></p>
+- If the price on day i is greater than the price on day i-1, then there is a profit to be made by buying on day i-1 and selling on day i.
+- We accumulate the profit in a variable profit and return it at the end.
 
-<pre>
-<strong>Input:</strong> prices = [7,6,4,3,1]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no way to make a positive profit, so we never buy the stock to achieve the maximum profit of 0.
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= prices.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
-</ul>
+## Time and Space Complexity:
+**Time Complexity**: O(n), where n is the number of days (length of the prices array). We iterate through the prices array once.
+**Space Complexity**: O(1). We only use a few extra variables for tracking the profit, so the space complexity is constant.

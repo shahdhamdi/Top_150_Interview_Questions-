@@ -1,25 +1,40 @@
-<h2><a href="https://leetcode.com/problems/product-of-array-except-self">Product of Array Except Self</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an integer array <code>nums</code>, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is equal to the product of all the elements of</em> <code>nums</code> <em>except</em> <code>nums[i]</code>.</p>
+## Problem Description
 
-<p>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</p>
+Given an integer array `nums`, we need to return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`. The product of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer.
 
-<p>You must write an algorithm that runs in&nbsp;<code>O(n)</code>&nbsp;time and without using the division operation.</p>
+### Constraints:
+- `2 <= nums.length <= 10^5`
+- `-30 <= nums[i] <= 30`
+- The product of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer.
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-<pre><strong>Input:</strong> nums = [1,2,3,4]
-<strong>Output:</strong> [24,12,8,6]
-</pre><p><strong class="example">Example 2:</strong></p>
-<pre><strong>Input:</strong> nums = [-1,1,0,-3,3]
-<strong>Output:</strong> [0,0,9,0,0]
-</pre>
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
 
-<ul>
-	<li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>-30 &lt;= nums[i] &lt;= 30</code></li>
-	<li>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
-</ul>
+## Approach
 
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong>&nbsp;Can you solve the problem in <code>O(1)</code>&nbsp;extra&nbsp;space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</p>
+To solve this problem without using division, we can break it into two passes: one for the prefix product and one for the suffix product. Here’s the detailed step-by-step approach:
+
+### Steps:
+
+1. **Initialize the result array:**
+   - We create an array `ans` of the same length as `nums`, initialized with 1. This will store the final result, i.e., the product of all elements except the current one.
+
+2. **First pass (Prefix Product):**
+   - Traverse the array from left to right. 
+   - For each index `i`, compute the product of all elements before it (the prefix product).
+   - Store this running product in `ans[i]`.
+   - For example, if the `nums` array is `[1, 2, 3, 4]`, after the first pass, `ans` will be `[1, 1, 2, 6]`, where each element stores the product of all elements to its left.
+
+3. **Second pass (Suffix Product):**
+   - Traverse the array from right to left.
+   - For each index `i`, compute the product of all elements after it (the suffix product).
+   - Multiply this suffix product with the value already stored in `ans[i]` from the first pass.
+   - For example, after the second pass, the `ans` array will be updated with the final product values.
+
+4. **Return the result:**
+   - After both passes, the `ans` array will contain the product of all elements except the one at each index.
+
+
+### Time Complexity:
+- **O(n)**: We traverse the array twice, once for the prefix product and once for the suffix product.
+
+### Space Complexity:
+- **O(1)**: Since we are modifying the `ans` array in-place, the space complexity does not increase (excluding the output array).
