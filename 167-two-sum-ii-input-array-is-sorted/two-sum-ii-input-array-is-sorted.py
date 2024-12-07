@@ -12,7 +12,3 @@ class Solution:
                 s+=1
             else:
                 e-=1
-        return [s+1,e+1]
-
-            
-
