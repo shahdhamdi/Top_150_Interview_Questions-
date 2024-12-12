@@ -18,8 +18,8 @@ class Solution:
                 sum+=l2.val
                 l2=l2.next
             rem=sum//10
-            num=sum%10
-            dummy.next=ListNode(num)
+            sum=sum%10
+            dummy.next=ListNode(sum)
             dummy=dummy.next
 
         return dummyhead.next
