@@ -17,6 +17,6 @@ class Solution:
             current=current.next
         if list1:
             current.next=list1
-        if list2:
+        elif list2:
             current.next=list2
         return dummyhead.next
