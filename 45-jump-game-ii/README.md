@@ -1,20 +1,35 @@
-## Problem: Jump Game II
+<h2><a href="https://leetcode.com/problems/jump-game-ii">Jump Game II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>. You are initially positioned at <code>nums[0]</code>.</p>
 
-### Description:
-You are given a **0-indexed** array of integers `nums` of length `n`. You are initially positioned at `nums[0]`.
+<p>Each element <code>nums[i]</code> represents the maximum length of a forward jump from index <code>i</code>. In other words, if you are at <code>nums[i]</code>, you can jump to any <code>nums[i + j]</code> where:</p>
 
-Each element `nums[i]` represents the maximum length of a forward jump from index `i`. In other words, if you are at `nums[i]`, you can jump to any `nums[i + j]` where:
-- `0 <= j <= nums[i]` 
-- `i + j < n`
+<ul>
+	<li><code>0 &lt;= j &lt;= nums[i]</code> and</li>
+	<li><code>i + j &lt; n</code></li>
+</ul>
 
-Return the **minimum number of jumps** to reach `nums[n - 1]`. It is guaranteed that you can reach `nums[n - 1]`.
+<p>Return <em>the minimum number of jumps to reach </em><code>nums[n - 1]</code>. The test cases are generated such that you can reach <code>nums[n - 1]</code>.</p>
 
-### Approach:
-We can solve this problem using a greedy approach:
-1. **Tracking the Maximum Reach**: At each step, track the farthest index you can reach from the current position.
-2. **Updating the End Point**: Whenever you reach the end of the current jump, increment the jump count and set the new end to the farthest index you can reach.
-3. **Terminate Early**: If the end point reaches or exceeds the last index, stop and return the jump count.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-### Time and Space Complexity:
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+<pre>
+<strong>Input:</strong> nums = [2,3,1,1,4]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,3,0,1,4]
+<strong>Output:</strong> 2
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+	<li>It&#39;s guaranteed that you can reach <code>nums[n - 1]</code>.</li>
+</ul>
