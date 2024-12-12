@@ -1,31 +1,40 @@
-## Problem: Insert Delete GetRandom O(1)
+<h2><a href="https://leetcode.com/problems/insert-delete-getrandom-o1">Insert Delete GetRandom O(1)</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Implement the <code>RandomizedSet</code> class:</p>
 
-### Description:
-Design a data structure that supports the following operations:
-1. **insert(val)**: Inserts the item `val` into the set if not already present. Returns `true` if the item was inserted, `false` otherwise.
-2. **remove(val)**: Removes the item `val` from the set if present. Returns `true` if the item was removed, `false` otherwise.
-3. **getRandom()**: Returns a random element from the set. It is guaranteed that at least one element exists when this method is called. Each element must have the same probability of being returned.
+<ul>
+	<li><code>RandomizedSet()</code> Initializes the <code>RandomizedSet</code> object.</li>
+	<li><code>bool insert(int val)</code> Inserts an item <code>val</code> into the set if not present. Returns <code>true</code> if the item was not present, <code>false</code> otherwise.</li>
+	<li><code>bool remove(int val)</code> Removes an item <code>val</code> from the set if present. Returns <code>true</code> if the item was present, <code>false</code> otherwise.</li>
+	<li><code>int getRandom()</code> Returns a random element from the current set of elements (it&#39;s guaranteed that at least one element exists when this method is called). Each element must have the <b>same probability</b> of being returned.</li>
+</ul>
 
-### Approach:
-- To perform all the operations in **O(1)** time complexity, we need to:
-  1. **Insertion and Removal**: Use a combination of a list and a hashmap.
-      - Use a list (`lst`) to store the elements for easy random access.
-      - Use a hashmap (`index_map`) to store the index of each element in the list for quick lookups, which allows us to remove elements efficiently without having to search through the list.
-  2. **getRandom()**: Simply use `random.choice()` to select a random element from the list.
+<p>You must implement the functions of the class such that each function works in&nbsp;<strong>average</strong>&nbsp;<code>O(1)</code>&nbsp;time complexity.</p>
 
-### Operations:
-1. **insert(val)**:
-   - If the element is not in the hashmap, add it to both the list and the hashmap.
-2. **remove(val)**:
-   - If the element is in the hashmap, remove it from both the list and the hashmap, ensuring the removal is done efficiently without affecting the random access property.
-3. **getRandom()**:
-   - Use `random.choice()` on the list to get a random element.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
 
-### Time and Space Complexity:
-- **Time Complexity**:
-  - `insert(val)`: O(1)
-  - `remove(val)`: O(1)
-  - `getRandom()`: O(1)
-- **Space Complexity**: O(n), where `n` is the number of elements in the set.
+<pre>
+<strong>Input</strong>
+[&quot;RandomizedSet&quot;, &quot;insert&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;]
+[[], [1], [2], [2], [], [1], [2], []]
+<strong>Output</strong>
+[null, true, false, true, 2, true, false, 2]
 
+<strong>Explanation</strong>
+RandomizedSet randomizedSet = new RandomizedSet();
+randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
+randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].
+randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
+randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
+randomizedSet.insert(2); // 2 was already in the set, so return false.
+randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+</pre>
 
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>-2<sup>31</sup> &lt;= val &lt;= 2<sup>31</sup> - 1</code></li>
+	<li>At most <code>2 *&nbsp;</code><code>10<sup>5</sup></code> calls will be made to <code>insert</code>, <code>remove</code>, and <code>getRandom</code>.</li>
+	<li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
+</ul>
