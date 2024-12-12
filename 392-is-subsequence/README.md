@@ -1,39 +1,23 @@
-## Problem Description
+<h2><a href="https://leetcode.com/problems/is-subsequence">Is Subsequence</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code><em> if </em><code>s</code><em> is a <strong>subsequence</strong> of </em><code>t</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
-Given two strings `s` and `t`, return `true` if `s` is a subsequence of `t`, or `false` otherwise.
+<p>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;<u>a</u>b<u>c</u>d<u>e</u>&quot;</code> while <code>&quot;aec&quot;</code> is not).</p>
 
-A **subsequence** of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "abc", t = "ahbgdc"
+<strong>Output:</strong> true
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "axc", t = "ahbgdc"
+<strong>Output:</strong> false
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-### Example 1:
+<ul>
+	<li><code>0 &lt;= s.length &lt;= 100</code></li>
+	<li><code>0 &lt;= t.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> and <code>t</code> consist only of lowercase English letters.</li>
+</ul>
 
-**Input**: `s = "abc", t = "ahbgdc"`  
-**Output**: `true`  
-Explanation: "abc" is a subsequence of "ahbgdc".
-
-### Example 2:
-
-**Input**: `s = "axc", t = "ahbgdc"`  
-**Output**: `false`  
-Explanation: "axc" is not a subsequence of "ahbgdc".
-
----
-
-## Approach
-
-To check if `s` is a subsequence of `t`, we can use a two-pointer technique:
-
-1. **Initialize two pointers**:
-   - `i` for string `s` (subsequence string).
-   - `j` for string `t` (the main string).
-   
-2. **Traverse through `t`**:
-   - If the characters `s[i]` and `t[j]` match, move to the next character in `s` by incrementing `i`.
-   - Always increment `j` to move through the string `t`.
-   
-3. **Check if all characters of `s` are matched**:
-   - If at any point `i` reaches the length of `s`, that means all characters of `s` have been found in `t` in order, and `s` is a subsequence of `t`.
-   
-4. **Return the result**:
-   - If `i` reaches the end of `s`, return `true`.
-   - Otherwise, return `false`.
-
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Suppose there are lots of incoming <code>s</code>, say <code>s<sub>1</sub>, s<sub>2</sub>, ..., s<sub>k</sub></code> where <code>k &gt;= 10<sup>9</sup></code>, and you want to check one by one to see if <code>t</code> has its subsequence. In this scenario, how would you change your code?
