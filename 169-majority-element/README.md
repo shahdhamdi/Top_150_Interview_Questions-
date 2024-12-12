@@ -1,37 +1,23 @@
-## Problem: Majority Element
+<h2><a href="https://leetcode.com/problems/majority-element">Majority Element</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.</p>
 
-### Description:
-Given an array `nums` of size `n`, return **the majority element**.
+<p>The majority element is the element that appears more than <code>&lfloor;n / 2&rfloor;</code> times. You may assume that the majority element always exists in the array.</p>
 
-The majority element is the element that appears more than `⌊n / 2⌋` times. You may assume that the majority element always exists in the array.
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [3,2,3]
+<strong>Output:</strong> 3
+</pre><p><strong class="example">Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [2,2,1,1,1,2,2]
+<strong>Output:</strong> 2
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-### Approach:
-We can solve this problem using a **hash map** to count the frequency of each element:
-1. Iterate through the array `nums` and count the frequency of each element using an unordered map.
-2. Once we have the frequency of each element, we check which element appears more than `n/2` times. This is the majority element.
-3. Return the majority element.
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
 
-### Time and Space Complexity:
-- **Time Complexity**: O(n)
-  - We traverse the array `nums` twice, once for counting the frequency and once for checking the frequency.
-  
-- **Space Complexity**: O(n)
-  - We use a hash map to store the frequency of each element, which could require space proportional to the size of the input array.
-
-### Example:
-
-#### Example 1:
-**Input**: `nums = [3,2,3]`  
-**Output**: `3`  
-**Explanation**: The element `3` appears 2 times which is more than `⌊3 / 2⌋ = 1` time.
-
-#### Example 2:
-**Input**: `nums = [2,2,1,1,1,2,2]`  
-**Output**: `2`  
-**Explanation**: The element `2` appears 4 times which is more than `⌊7 / 2⌋ = 3` times.
-
-### Constraints:
-- `n == nums.length`
-- `1 <= n <= 5 * 10^4`
-- `-10^9 <= nums[i] <= 10^9`
-
+<p>&nbsp;</p>
+<strong>Follow-up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?
